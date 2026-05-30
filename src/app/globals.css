@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
+body {
+  @apply bg-canvas font-body text-ink antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-size: 40px 40px;
+  background-image: linear-gradient(rgba(79, 70, 229, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 70, 229, 0.04) 1px, transparent 1px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+::selection {
+  background: rgba(79, 70, 229, 0.2);
+  color: #0f172a;
+}
+
+@layer components {
+  .zone-locked {
+    @apply pointer-events-none select-none blur-[2px] opacity-40;
+  }
+}
